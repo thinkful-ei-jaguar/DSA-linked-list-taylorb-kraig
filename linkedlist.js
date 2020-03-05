@@ -115,8 +115,9 @@ function main() {
 
   //SLL.remove('squirrel')
 
-  //SLL.insertBefore("squirrel", "Apollo", SLL);
-  //SLL.insertAfter("squirrel", "Apollo", SLL)
+  SLL.insertBefore("Athena", "Boomer", SLL);
+  SLL.insertAfter("Hot Dog", "Helo", SLL)
+  SLL.remove('Tauhida')
 
   SLL.insertAt("Kat", SLL, 3)
 
