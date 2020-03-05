@@ -23,7 +23,6 @@ class LinkedList {
       current = current.next; //looping if not equal
     }
     previous.next = new _Node(item, current.next);
-    console.log('newNode', previous.next)
   }
 
   insertAfter(item, desiredNode, list) {
@@ -33,6 +32,7 @@ class LinkedList {
         let current = list.head
         let previous = list.head
         while (current.value !== desiredNode) {
+           console.log('this is current', current)
            previous = current;
            current = current.next; 
         }
@@ -102,27 +102,31 @@ class LinkedList {
   }
   //insertAt
 }
+const SLL = new LinkedList()
 
-function main() {
-  const SLL = new LinkedList();
-
-  SLL.insertFirst("Apollo");
-  SLL.insertFirst("Boomer");
-  SLL.insertFirst("Helo");
-  SLL.insertFirst("Husker");
-  SLL.insertFirst("Starbuck");
-  SLL.insertFirst("Tauhida");
-
-  //SLL.remove('squirrel')
-
-  SLL.insertBefore("Athena", "Boomer", SLL);
-  SLL.insertAfter("Hot Dog", "Helo", SLL)
-  SLL.remove('Tauhida')
-
-  SLL.insertAt("Kat", SLL, 3)
-
-  return SLL;
+function displayList (list) {
+    
 }
 
+function main(list) {
 
-main();
+    list.insertFirst("Apollo");
+    list.insertFirst("Boomer");
+    list.insertFirst("Helo");
+    list.insertFirst("Husker");
+    list.insertFirst("Starbuck");
+    list.insertFirst("Tauhida");
+  
+    //list.remove('squirrel')
+  
+    list.insertBefore("Athena", "Boomer", list);
+    //list.insertAfter("Hotdog", "Helo", list);
+    list.remove('Tauhida');
+  
+    list.insertAt("Kat", list, 3)
+  
+    displayList(list)
+    return list;
+}
+  
+main(SLL);
