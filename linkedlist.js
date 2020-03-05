@@ -12,19 +12,48 @@ class LinkedList {
         //set next of item to currentNode
         //tempNode = node before currentNode
         //currNode => item
+       let newNode= new _Node(item,currentNode)
         if (currentNode === this.head) {
             this.insertFirst(item)
             return;
         }
-        let foundItem = this.find(currentNode)
+        let foundItem = this.findNext(currentNode)
+        console.log("found item",foundItem)
+        //pushBack = foundItem.next.value
 
-
+        newNode.next= foundItem
+        console.log("this is new node",newNode)
+        //item.next= pushBack
+        
+return item
         //let tempNode = 
-        console.log('foundItem', foundItemNext)
+        //console.log('foundItem', foundItemNext)
         //let newItem = new _Node(item, foundItem)
         //tempNode.next = newItem
         //return newItem
         //foundItem.next = item <= insert After
+    }
+    findNext(item){
+        let currNode = this.head;
+        if(!this.head) {
+            return null;
+        }
+
+        if(currNode.next===item){
+            return currNode
+        }
+        // while(currNode.next !=item ){
+        //     if (currNode.next === null) {
+        //         return null
+        //     }
+        //     else if{
+        //         currNode = currNode.next
+        //     }
+        //     else if(currNode.next=== item){
+        //         return currNode
+        //     }
+        // }
+        return currNode
     }
     insertLast(item) {
         if (this.head === null) {
@@ -33,6 +62,9 @@ class LinkedList {
         }
         let tempNode = this.head;
         while(tempNode !== null) {
+            if (currNode.next === null) {
+                return null
+            }
             tempNode = tempNode.next
         }
         tempNode.next = new _Node(item, null)
