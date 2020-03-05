@@ -119,6 +119,14 @@ function displayList (list) {
 
     
 }
+function checkEmpty(list){
+    if(list.head !=null){
+        console.log("this is not empty")
+    }
+    else{
+        console.log('this is empty')
+    }
+}
 function displaySize(list){
     let position = 1;
     let tempNode = list.head
@@ -132,24 +140,25 @@ function displaySize(list){
 
 function main(list) {
 
-    list.insertFirst("Apollo");
-    list.insertFirst("Boomer");
-    list.insertFirst("Helo");
-    list.insertFirst("Husker");
-    list.insertFirst("Starbuck");
-    list.insertFirst("Tauhida");
+    // list.insertFirst("Apollo");
+    // list.insertFirst("Boomer");
+    // list.insertFirst("Helo");
+    // list.insertFirst("Husker");
+    // list.insertFirst("Starbuck");
+    // list.insertFirst("Tauhida");
   
-    //list.remove('squirrel')
+    // //list.remove('squirrel')
   
-    list.insertBefore("Athena", "Boomer", list);
+    // list.insertBefore("Athena", "Boomer", list);
    
-    //list.insertAfter("Hotdog", "Helo", list);
-    list.remove('Tauhida');
+    // //list.insertAfter("Hotdog", "Helo", list);
+    // list.remove('Tauhida');
   
-    list.insertAt("Kat", list, 3)
+    // list.insertAt("Kat", list, 3)
   
     //displayList(list)
-    displaySize(list)
+    //displaySize(list)
+    checkEmpty(list);
     return list;
 }
   
