@@ -105,6 +105,13 @@ class LinkedList {
 const SLL = new LinkedList()
 
 function displayList (list) {
+    //console.log("this is display list",JSON.stringify(list))
+    let currNode = list.head;
+    while(currNode){
+        console.log(currNode)
+        currNode= currNode.next
+    }
+
     
 }
 
