@@ -18,6 +18,7 @@ class LinkedList {
         }
         let foundItem = this.find(currentNode)
 
+
         //let tempNode = 
         console.log('foundItem', foundItemNext)
         //let newItem = new _Node(item, foundItem)
