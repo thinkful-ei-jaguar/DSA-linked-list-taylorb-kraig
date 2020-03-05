@@ -23,7 +23,7 @@ class LinkedList {
       current = current.next; //looping if not equal
     }
     previous.next = new _Node(item, current.next);
-    
+    console.log('newNode', previous.next)
   }
 
   insertAfter(item, desiredNode, list) {
@@ -52,6 +52,19 @@ class LinkedList {
       tempNode = tempNode.next;
     }
     tempNode.next = new _Node(item, null);
+  }
+  insertAt(item, list, desiredPosition) {
+        if (list.head === null) {
+            this.insertFirst(item)
+        }
+
+        let position = 1;
+        let tempNode = list.head
+        while(desiredPosition !== position) {
+            tempNode = tempNode.next
+            position++
+        }
+        this.insertBefore(item, tempNode.value, list)
   }
   find(item) {
     let currNode = this.head;
@@ -103,7 +116,9 @@ function main() {
   //SLL.remove('squirrel')
 
   //SLL.insertBefore("squirrel", "Apollo", SLL);
-  SLL.insertAfter("squirrel", "Apollo", SLL)
+  //SLL.insertAfter("squirrel", "Apollo", SLL)
+
+  SLL.insertAt("Kat", SLL, 3)
 
   return SLL;
 }
