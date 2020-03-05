@@ -7,28 +7,36 @@ class LinkedList {
   insertFirst(item) {
     this.head = new _Node(item, this.head);
   }
-  insertBefore(item, currentNode, list) {
+  insertBefore(item, desiredNode, list) {
     //traverse head until find currentNode
     //set next of item to currentNode
     //tempNode = node before currentNode
-    console.log("starting list", list)
-    if (currentNode === list.head.value) {
+    if (desiredNode === list.head.value) {
       this.insertFirst(item);
       return;
     }
     let current = list.head;
     let previous = list.head;
-    let newNode = new _Node(item, currentNode);
 
-    while (current !== null && current.next.value != currentNode) {
+    while (current !== null && current.next.value != desiredNode) {
       previous = current; //old
       current = current.next; //looping if not equal
     }
-    console.log("this is current outide of while", current)
     previous.next = new _Node(item, current.next);
-    console.log("this is new node", previous.next)
-    console.log("entire list",list)
     
+  }
+
+  insertAfter(item, desiredNode, list) {
+        if (list.head === null) {
+            this.insertFirst(item)
+        }      
+        let current = list.head
+        let previous = list.head
+        while (current.value !== desiredNode) {
+           previous = current;
+           current = current.next; 
+        }
+        current.next = new _Node(item, current.next)
   }
 
   insertLast(item) {
@@ -79,9 +87,6 @@ class LinkedList {
     }
     previousNode.next = currNode.next;
   }
-  //insert
-  //insertBefore
-  //insertAfter
   //insertAt
 }
 
@@ -97,10 +102,11 @@ function main() {
 
   //SLL.remove('squirrel')
 
-  SLL.insertBefore("squirrel", "Apollo", SLL);
+  //SLL.insertBefore("squirrel", "Apollo", SLL);
+  SLL.insertAfter("squirrel", "Apollo", SLL)
 
   return SLL;
 }
 
 
-console.log(main());
+main();
