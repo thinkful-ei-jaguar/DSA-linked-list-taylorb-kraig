@@ -1,5 +1,10 @@
 const _Node = require("./_Node");
-
+// class _Node {
+//     constructor(value = null, next = null) {
+//         this.value = value;
+//         this.next = next;
+//     }
+// }
 class LinkedList {
   constructor() {
     this.head = null;
@@ -22,7 +27,7 @@ class LinkedList {
       previous = current; //old
       current = current.next; //looping if not equal
     }
-    previous.next = new _Node(item, current.next);
+    current.next = new _Node(item, current.next);
   }
 
   insertAfter(item, desiredNode, list) {
@@ -114,6 +119,16 @@ function displayList (list) {
 
     
 }
+function displaySize(list){
+    let position = 1;
+    let tempNode = list.head
+    while(tempNode) {
+        tempNode=tempNode.next
+        position++
+
+    }
+    console.log("this is position",position)
+}
 
 function main(list) {
 
@@ -127,12 +142,14 @@ function main(list) {
     //list.remove('squirrel')
   
     list.insertBefore("Athena", "Boomer", list);
+   
     //list.insertAfter("Hotdog", "Helo", list);
     list.remove('Tauhida');
   
     list.insertAt("Kat", list, 3)
   
-    displayList(list)
+    //displayList(list)
+    displaySize(list)
     return list;
 }
   
