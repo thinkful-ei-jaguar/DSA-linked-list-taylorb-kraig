@@ -138,28 +138,68 @@ function displaySize(list){
     console.log("this is position",position)
 }
 
+function findPrevious (item, list) {
+    let currentNode = list.head
+    while (currentNode.next.value != item) {
+        currentNode = currentNode.next
+    }
+    return console.log(currentNode)
+}
+
+function findLast (list) {
+    currentNode = list.head
+    if(currentNode.next === null) {
+        return console.log(currentNode)
+    }
+    while (currentNode.next != null) {
+        currentNode = currentNode.next
+        
+    }
+    return console.log(currentNode)
+}
+
+function WhatDoesThisProgramDo(lst) {
+    let current = lst.head;
+    while (current !== null) {
+        let newNode = current;
+        while (newNode.next !== null) {
+            if (newNode.next.value === current.value) {
+                newNode.next = newNode.next.next;
+            }
+            else {
+                newNode = newNode.next;
+            }
+        }
+        current = current.next;
+    }
+}
+
 function main(list) {
 
-    // list.insertFirst("Apollo");
-    // list.insertFirst("Boomer");
-    // list.insertFirst("Helo");
-    // list.insertFirst("Husker");
-    // list.insertFirst("Starbuck");
-    // list.insertFirst("Tauhida");
+    list.insertFirst("Apollo");
+    list.insertFirst("Boomer");
+    list.insertFirst("Helo");
+    list.insertFirst("Husker");
+    list.insertFirst("Starbuck");
+    list.insertFirst("Tauhida");
   
-    // //list.remove('squirrel')
+    //list.remove('squirrel')
   
-    // list.insertBefore("Athena", "Boomer", list);
+    list.insertBefore("Athena", "Boomer", list);
    
-    // //list.insertAfter("Hotdog", "Helo", list);
-    // list.remove('Tauhida');
+    list.insertAfter("Hotdog", "Helo", list);
+    list.remove('Tauhida');
   
-    // list.insertAt("Kat", list, 3)
+    list.insertAt("Kat", list, 3)
   
+    
     //displayList(list)
     //displaySize(list)
-    checkEmpty(list);
+    //checkEmpty(list);
+    // findPrevious('Helo', list)
+    // findLast(list)
+    WhatDoesThisProgramDo(list)
     return list;
 }
   
-main(SLL);
+console.log(main(SLL));
